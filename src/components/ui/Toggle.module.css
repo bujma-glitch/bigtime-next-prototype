@@ -1,0 +1,60 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+
+.caption {
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.track {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-default);
+  flex-shrink: 0;
+}
+
+.track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-canvas);
+  transform: translateX(0);
+  transition: transform var(--duration-hover) var(--ease-out);
+}
+
+.toggle input:checked + .track {
+  background: var(--color-bg-inverse);
+}
+
+.toggle input:checked + .track::after {
+  transform: translateX(14px);
+}
+
+.toggle input:focus-visible + .track {
+  outline: 2px solid var(--color-bg-inverse);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track::after {
+    transition: none;
+  }
+}

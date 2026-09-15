@@ -1,0 +1,44 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-text-secondary);
+}
+
+.group {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 12px;
+  background: var(--color-bg-muted);
+  width: fit-content;
+}
+
+.option {
+  height: 28px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.option[aria-checked="true"] {
+  background: var(--color-text-primary);
+  color: var(--color-text-inverse);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .option:hover:not([aria-checked="true"]) {
+    color: var(--color-text-primary);
+  }
+}

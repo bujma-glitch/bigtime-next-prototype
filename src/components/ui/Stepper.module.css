@@ -1,0 +1,150 @@
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.step:not(:last-child) {
+  flex: 1;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-bg-inverse);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-canvas);
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+  flex-shrink: 0;
+  transition: background-color var(--duration-hover) ease, border-color var(--duration-hover) ease,
+    color var(--duration-hover) ease;
+}
+
+.step[data-state="done"] .marker,
+.step[data-state="active"] .marker {
+  border-color: var(--color-bg-inverse);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+}
+
+.step[data-state="done"] .label,
+.step[data-state="active"] .label {
+  color: var(--color-text-primary);
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  min-width: 24px;
+  background: var(--color-border-default);
+}
+
+@media (max-width: 980px) {
+  .label {
+    display: none;
+  }
+}
+
+/* Compact — progress segments plus the open step's name. */
+
+.compact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.segments {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  flex-shrink: 0;
+}
+
+.segment {
+  display: block;
+  width: 22px;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-border-default);
+  cursor: pointer;
+  transition: background-color var(--duration-hover) ease;
+}
+
+.segment:disabled {
+  cursor: default;
+}
+
+.segment[data-state="on"] {
+  background: var(--color-bg-inverse);
+}
+
+.segment:focus-visible {
+  outline: 2px solid var(--color-bg-inverse);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .segment {
+    transition: none;
+  }
+}
+
+.compactLabel {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

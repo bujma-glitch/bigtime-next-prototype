@@ -1,0 +1,84 @@
+.routines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 16px;
+  background: var(--color-bg-subtle);
+}
+
+.routinesLabel {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-text-secondary);
+}
+
+.empty {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-text-tertiary);
+}
+
+.routineCard,
+.routineEditor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--color-border-card);
+  border-radius: 14px;
+  background: var(--color-bg-canvas);
+}
+
+.routineHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.routineTitle {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-text-primary);
+}
+
+.routineBody,
+.routineMeta {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-text-secondary);
+}
+
+.routineMeta {
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--color-text-tertiary);
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.addRoutine {
+  width: fit-content;
+  height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .addRoutine:hover {
+    color: var(--color-text-primary);
+  }
+}

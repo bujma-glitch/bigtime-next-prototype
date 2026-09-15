@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="42" height="18" viewBox="0 0 42 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="App chips" clip-path="url(#clip0_0_203)">
+<circle id="app-0" cx="9" cy="9" r="8.25" fill="#2AB7EA" stroke="white" stroke-width="1.5"/>
+<circle id="app-1" cx="21" cy="9" r="8.25" fill="#4AC6B7" stroke="white" stroke-width="1.5"/>
+<circle id="app-2" cx="33" cy="9" r="8.25" fill="#0866FF" stroke="white" stroke-width="1.5"/>
+</g>
+<defs>
+<clipPath id="clip0_0_203">
+<rect width="42" height="18" fill="white"/>
+</clipPath>
+</defs>
+</svg>

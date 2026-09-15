@@ -1,0 +1,62 @@
+.disclosure {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-bg-inverse);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trigger {
+    transition: color var(--duration-hover) ease;
+  }
+
+  .trigger:hover {
+    color: var(--color-text-primary);
+  }
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.chevron {
+  display: flex;
+  color: var(--color-icon-muted);
+  transition: transform var(--duration-hover) var(--ease-out);
+}
+
+.chevron[data-open="true"] {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

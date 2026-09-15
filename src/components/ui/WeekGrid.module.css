@@ -1,0 +1,172 @@
+.wrap {
+  padding: 8px;
+  border-radius: 24px;
+  background: var(--color-bg-muted);
+  overflow-x: auto;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  min-width: max-content;
+  border-radius: 16px;
+  background: var(--color-bg-canvas);
+  overflow: hidden;
+}
+
+.head,
+.row {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.4fr) repeat(7, 100px) 110px 40px;
+  align-items: stretch;
+}
+
+.grid[data-trailing="false"] .head,
+.grid[data-trailing="false"] .row {
+  grid-template-columns: minmax(240px, 1.4fr) repeat(7, 100px) 110px;
+}
+
+.head {
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.row + .row {
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 14px;
+  min-width: 0;
+}
+
+.cell + .cell {
+  border-left: 1px solid var(--color-border-subtle);
+}
+
+.lead {
+  justify-content: center;
+  gap: 2px;
+}
+
+.headLead {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-text-primary);
+}
+
+.headDay {
+  gap: 4px;
+}
+
+.dayLabel {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+}
+
+.daySum {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Today gets the marker rail from the design, not a fill. */
+.headDay[data-today] {
+  box-shadow: inset 0 3px 0 var(--color-text-primary);
+}
+
+.headDay[data-today] .dayLabel {
+  color: var(--color-text-secondary);
+}
+
+.headDay[data-weekend],
+.dayCell[data-weekend] {
+  background: var(--color-bg-subtle);
+}
+
+.totalColumn {
+  background: var(--color-bg-subtle);
+}
+
+.dayCell {
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.value[data-running] {
+  color: var(--color-text-tertiary);
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-default);
+  overflow: hidden;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-inverse);
+}
+
+.bar[data-tone="warning"] .barFill {
+  background: var(--color-warning);
+}
+
+.bar[data-tone="empty"] .barFill {
+  background: var(--color-border-default);
+}
+
+.row {
+  background: var(--color-bg-canvas);
+}
+
+.row[data-clickable] {
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row[data-clickable] {
+    transition: background-color var(--duration-hover) ease;
+  }
+
+  .row[data-clickable]:hover {
+    background: var(--color-bg-subtle);
+  }
+}
+
+.trailing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 8px;
+}
+
+.footer {
+  display: flex;
+  padding: 12px 6px 4px;
+}

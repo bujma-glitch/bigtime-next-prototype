@@ -1,0 +1,61 @@
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.md {
+  width: 34px;
+  height: 34px;
+}
+
+.sm {
+  width: 18px;
+  height: 18px;
+}
+
+.photo {
+  background:
+    radial-gradient(90% 80% at 22% 18%, #e7f9ff 0%, #8fd6f4 38%, #5b8cff 72%, #3f62d8 100%);
+}
+
+.muted {
+  background: var(--color-bg-muted);
+}
+
+.plus {
+  background: transparent;
+  color: var(--color-icon-muted);
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 32% 28%;
+}
+
+.initials {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--color-text-inverse);
+  letter-spacing: 0;
+}
+
+.md .initials {
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.sm .initials {
+  font-size: 5.8px;
+  line-height: 7.4px;
+}

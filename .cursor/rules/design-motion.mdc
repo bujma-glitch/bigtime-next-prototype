@@ -1,0 +1,33 @@
+---
+description: UI motion standard from DESIGN-MOTION.md. Apply when adding or changing animations, transitions, drawers, dialogs, toasts, hover, or press feedback.
+globs: src/**/*.{css,tsx,ts}
+alwaysApply: true
+---
+
+# Motion
+
+Follow [`DESIGN-MOTION.md`](DESIGN-MOTION.md) before writing any animation.
+
+## Decide first
+
+- 100+/day or keyboard-initiated → no motion
+- Tens/day (nav, list hover) → color only, short, or none
+- Occasional (drawers, dialogs, toasts) → standard motion
+- Purpose must be spatial consistency, state, explanation, feedback, or avoiding a jump
+
+## Tokens (`src/app/globals.css`)
+
+Use these; do not invent new curves or durations.
+
+- `--ease-out` enter/exit, `--ease-in-out` on-screen moves, `--ease` hover/color, `--ease-drawer` drawers
+- Never `ease-in`. Never `transition: all`. Animate `transform` and `opacity` only.
+- Press: `scale(0.97)` in `--duration-press`. Enter from `scale(0.95)` + `opacity: 0`, never `scale(0)`.
+- UI under 300ms. Drawers/modals `--duration-drawer` / `--duration-dialog` (200–280ms).
+- Hover behind `@media (hover: hover) and (pointer: fine)`.
+- Reduced motion: keep opacity/color, drop movement.
+
+## Surfaces in this app
+
+- Drawer: `translateX(100%)` → `0`, `--ease-drawer`, interruptible CSS transition
+- Dialog: `scale(0.96)` + opacity, `--ease-out`, origin center
+- Toast: `translateY(100%)` + opacity, CSS transition (not keyframes)

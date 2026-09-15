@@ -1,0 +1,53 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 28px;
+  padding: var(--space-4) var(--space-10);
+  border: 1px solid var(--color-border-default);
+  border-radius: 12px;
+  background: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    background: var(--color-bg-subtle);
+  }
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-bg-inverse);
+  outline-offset: 2px;
+}
+
+.button[data-tone="primary"] {
+  border-color: var(--color-bg-inverse);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+
+.button[data-tone="primary"] .icon {
+  color: var(--color-text-inverse);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button[data-tone="primary"]:hover {
+    background: color-mix(in srgb, var(--color-bg-inverse) 88%, #0a0a0a);
+    border-color: color-mix(in srgb, var(--color-bg-inverse) 88%, #0a0a0a);
+  }
+}
+
+.icon {
+  display: flex;
+  color: var(--color-icon-muted);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 20px;
+}
