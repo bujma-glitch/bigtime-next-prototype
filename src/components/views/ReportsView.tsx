@@ -251,41 +251,44 @@ function barOption(
   max: number | undefined,
   interval?: number,
 ): EChartsCoreOption {
-  const series: EChartsCoreOption["series"] = [
-    {
-      type: "bar",
-      data: current,
-      barWidth: 28,
-      barGap: "20%",
-      itemStyle: { color: primary, borderRadius: [4, 4, 0, 0] },
-      z: 2,
-    },
-  ];
-  if (prior) {
-    series.push({
-      type: "bar",
-      data: prior,
-      barWidth: 28,
-      itemStyle: { color: primarySoft, borderRadius: [4, 4, 0, 0] },
-      z: 1,
-    });
-  }
-  if (avg !== undefined) {
-    series.push({
-      type: "line",
-      data: months.map(() => avg),
-      showSymbol: false,
-      lineStyle: { color: average, width: 1.5, type: "dashed" },
-      tooltip: { show: false },
-      z: 3,
-    });
-  }
   return {
     grid: { left: 8, right: 12, top: 16, bottom: 8, containLabel: true },
     tooltip: tooltip(),
     xAxis: categoryAxis(months),
     yAxis: valueAxis(max, interval),
-    series,
+    series: [
+      {
+        type: "bar",
+        data: current,
+        barWidth: 28,
+        barGap: "20%",
+        itemStyle: { color: primary, borderRadius: [4, 4, 0, 0] },
+        z: 2,
+      },
+      ...(prior
+        ? [
+            {
+              type: "bar" as const,
+              data: prior,
+              barWidth: 28,
+              itemStyle: { color: primarySoft, borderRadius: [4, 4, 0, 0] },
+              z: 1,
+            },
+          ]
+        : []),
+      ...(avg !== undefined
+        ? [
+            {
+              type: "line" as const,
+              data: months.map(() => avg),
+              showSymbol: false,
+              lineStyle: { color: average, width: 1.5, type: "dashed" },
+              tooltip: { show: false },
+              z: 3,
+            },
+          ]
+        : []),
+    ],
   };
 }
 

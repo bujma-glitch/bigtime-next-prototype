@@ -13,7 +13,7 @@ export type TagOption = {
 
 type TagPickerProps = {
   label: string;
-  options: TagOption[];
+  options: readonly TagOption[];
   selected: string[];
   trailing?: ReactNode;
   onChange: (next: string[]) => void;

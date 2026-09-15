@@ -36,18 +36,19 @@ export function Dialog({ open, title, size = "md", onClose, children }: DialogPr
       return;
     }
 
+    const dialog = node;
     function done(event: TransitionEvent) {
-      if (event.target !== node || event.propertyName !== "opacity") return;
-      node.close();
+      if (event.target !== dialog || event.propertyName !== "opacity") return;
+      dialog.close();
     }
 
-    node.addEventListener("transitionend", done);
+    dialog.addEventListener("transitionend", done);
     const fallback = window.setTimeout(() => {
-      if (node.open) node.close();
+      if (dialog.open) dialog.close();
     }, 280);
     return () => {
       window.clearTimeout(fallback);
-      node.removeEventListener("transitionend", done);
+      dialog.removeEventListener("transitionend", done);
     };
   }, [open]);
 
